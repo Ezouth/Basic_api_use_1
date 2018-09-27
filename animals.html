@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>HomePage | Weather App</title>
+    <title>Animal Page</title>
 <!--   Attaching bootstrap link -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -12,43 +12,25 @@
   <body>
     <header id="nav"></header>
 
-    <div class="container">
-      <row>
-        <div class="col-md-4 offset-md-4">
-          <form action="" method="POST" class="form-inline" id="search_weather" role="form">
-            <input id="city_search" class="form-control" type="text" placeholder="City...">
-            <input class="btn btn-primary" value="submit" type="submit">
-          </form>
-        </div> <!-- Ends col 4 -->
-      </row> <!-- Ends row -->
-    </div> <!-- Ends Container -->
 <!-- REMINDER: Container class is a predefined bootstrap class that comes with margins and padding -->
-
-
-
-<div class="container" id="weather-info">
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
-        <div class="card">
-          <div class="card-title badge-warning"> High</div>
-          <div class="card-text" id="high"></div>
-        </div> <!-- Ends card -->
-        <div class="card">
-        <div class="card-title badge-success"> Low</div>
-        <div class="card-text" id="low"></div>
-      </div>
-        <div class="card">
-        <div class="card-title badge-primary">Forecast</div>
-        <div class="card-text" id="forecast"></div>
-      </div>
-        <div class="card">
-        <div class="card-title badge-secondary">Humidity</div>
-        <div class="card-text" id="humidity"></div>
-      </div>
-      </div> <!-- ends col 6 -->
-    </div> <!-- Ends row -->
-  </div> <!-- Ends container -->
-
+<table id="animals1">
+  <tr>
+    <th> Name </th>
+    <th> Species </th>
+    <th> Likes </th>
+    <th> Dislikes </th>
+  </tr>
+</table>
+<table id="animals">
+  <tr>
+    <th> Name </th>
+    <th> Species </th>
+    <th> Likes </th>
+    <th> Dislikes </th>
+  </tr>
+</table>
+<table style="width:100%" id="animals">
+</table>
 
 <!-- CDNS for bootstrap and AJAX -->
 <script
