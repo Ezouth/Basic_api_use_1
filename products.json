@@ -1,0 +1,33 @@
+var products = {
+  "items": [
+    {
+      "name": "Soap",
+      "price": 1.99,
+      "description": "A bar of soap"
+    },
+    { "name": "Chair",
+      "price": 39.99,
+      "description": "Totally not from Sweden"
+    },
+    {
+      "name": "Box",
+      "price": "2.99",
+      "description": "Solid Snake himself reccomends this model"
+    },
+    {
+      "name": "Table",
+      "price": 59.99,
+      "description" : "It matches the chair... Kinda."
+    },
+      {
+        "name": "Hat",
+        "price": 13.43,
+        "description" : "Very good insulation"
+      },
+      {
+        "name": "Cloak",
+        "price": 32.99,
+        "description": "You know you want one"
+      }
+  ]
+}

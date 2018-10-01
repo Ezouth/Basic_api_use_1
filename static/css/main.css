@@ -1,31 +1,5 @@
-form {
-  margin: 50px auto;
-}
-
-input {
-  width: 100%;
-  margin: 25px;
-  display: block;
-}
-
-
-.card {
-  margin-top: 20px;
-}
-
-.card-title, .card-text {
-  padding: 20px;
-}
-
-.card-title {
-  font-weight: bold,400;
-  font-size: 26px;
-}
-
-td {
-  padding: 20px;
-}
-
-#animals, #animals1 {
-  width: 100%;
+.Totally {
+  color: steelblue;
+  font-size: 40px;
+  padding-left: 200px;
 }

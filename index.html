@@ -3,52 +3,145 @@
   <head>
     <meta charset="utf-8">
     <title>HomePage | Weather App</title>
+
 <!--   Attaching bootstrap link -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!--  Attaching our own main css file -->
     <link rel="stylesheet" href="./static/css/main.css">
+  <!-- Attaching the json file -->
+  <script type="text/javascript"  src="products.json"/>
+
+
+    </script>
   </head>
   <body>
     <header id="nav"></header>
 
+    <div class="divDisplayCart"></div>
+    <script type="text/javascript">
+
+
+    var cart;
+
+
+
+  function displayItems(products) {
+    var i;
+    for (i=0; i<products.items.length; i++) {
+
+      if ((i % 3) == 0) {
+        document.write("<div class='row'>");
+      }
+
+      document.write("<div class='row'>");
+      document.write("\r\n");
+      document.write("<div class='container'>");
+      document.write("\r\n");
+      document.write("<div class='col-md-4'>");
+      document.write("\r\n");
+      document.write("<img src='http://placehold.it/250x250'>");
+      document.write("\r\n");
+      document.write("<div class='row>");
+      document.write("\r\n");
+      document.write(products.items[i].name);
+      document.write("\r\n");
+      document.write("</div>");
+      document.write("\r\n");
+      document.write("<div class='row'>");
+      document.write("\r\n");
+      document.write(products.items[i].price);
+      document.write("\r\n");
+      document.write("</div>");
+      document.write("\r\n");
+      document.write("<div class='row'>");
+      document.write("\r\n");
+      document.write("<a href='#' class='btn btn-primary' onclick='addToCart("+ i + ")'> Add to Cart </a>");
+      document.write("\r\n");
+      document.write("</div>");
+      document.write("\r\n");
+      document.write("<div class='row'>");
+      document.write("\r\n");
+      document.write("<a href='#' class='btn btn-primary' onclick='removeFromCart("+ i + ")'> Remove from Cart </a>");
+      document.write("\r\n");
+      document.write("</div>");
+      document.write("</div>");
+      document.write("</div>");
+      document.write("</div>");
+      if ((i % 3) == 2) {
+        document.write("</div class='row'>");
+      }
+
+    } // ends for loop
+    if ((i % 3) != 2) {
+      document.write("<div class='row'/>");
+    }
+
+
+}
+
+  function createCart()  {
+    cart = new Array(products.items.length);
+    for (var i=0; i<cart.length; i++) {
+      cart[i] = 0;
+    }
+  }
+
+  function addToCart(i) {
+    cart[i]++;
+    calculateTotal();
+  }
+
+  function removeFromCart(i) {
+    if (cart[i] == 0) {
+      return;
+    }
+    cart[i]--;
+    calculateTotal();
+  }
+
+  function calculateTotal() {
+    var total=0;
+    for (var i=0; i<cart.length; i++) {
+      total += cart[i] * products.items[i].price;
+    }
+    $(".Totally").html("Your total is: $" + total.toFixed(2));
+  }
+
+
+  function displayCart() {
+    var k = '';
+    for (var j=0; j<cart.length; j++) {
+      if (cart[j] > 0) {
+        k += "You have " + cart[j] + " " + products.items[j].name + "<br\>";
+      }
+    }
+    $(".divDisplayCart").html(k);
+  }
+  // Calling functions
+  createCart();
+  displayItems(products);
+  </script>
+
+<!--
     <div class="container">
-      <row>
-        <div class="col-md-4 offset-md-4">
-          <form action="" method="POST" class="form-inline" id="search_weather" role="form">
-            <input id="city_search" class="form-control" type="text" placeholder="City...">
-            <input class="btn btn-primary" value="submit" type="submit">
-          </form>
-        </div> <!-- Ends col 4 -->
-      </row> <!-- Ends row -->
-    </div> <!-- Ends Container -->
-<!-- REMINDER: Container class is a predefined bootstrap class that comes with margins and padding -->
-
-
-
-<div class="container" id="weather-info">
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
-        <div class="card">
-          <div class="card-title badge-warning"> High</div>
-          <div class="card-text" id="high"></div>
-        </div> <!-- Ends card -->
-        <div class="card">
-        <div class="card-title badge-success"> Low</div>
-        <div class="card-text" id="low"></div>
-      </div>
-        <div class="card">
-        <div class="card-title badge-primary">Forecast</div>
-        <div class="card-text" id="forecast"></div>
-      </div>
-        <div class="card">
-        <div class="card-title badge-secondary">Humidity</div>
-        <div class="card-text" id="humidity"></div>
-      </div>
-      </div> <!-- ends col 6 -->
-    </div> <!-- Ends row -->
-  </div> <!-- Ends container -->
-
+      <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="http://placehold.it/250x250" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Soap</h5>
+      <cp class="card-text"></p>
+      <a href="#" class="btn btn-primary">Add to Cart</a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="http://placehold.it/250x250" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Soap</h5>
+    <p class="card-text"></p>
+    <a href="#" class="btn btn-primary">Add to Cart</a>
+  </div>
+</div> -->
 
 <!-- CDNS for bootstrap and AJAX -->
 <script
